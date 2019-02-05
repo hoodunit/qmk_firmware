@@ -2,15 +2,10 @@
 
 ## How to flash a new Redox build
 
-Build it:
+Build and flash it:
 
 ```
-make redox/rev1:default
+make redox/rev1:hoodunit:avrdude
 ```
 
-Then flash the resulting output file:
-
-```
-redox_rev1_default.hex
-```
-
+Then take a pencil and press the button in the back of the keyboard to reset the device. Do the same to the other half.
