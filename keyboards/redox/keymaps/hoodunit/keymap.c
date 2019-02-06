@@ -75,47 +75,6 @@ enum custom_keycodes {
 #define CTRL_ESC MT(MOD_LCTL, KC_ESC)
 #define CTRL_TAB LCTL(KC_TAB)
 
-// Set Unicode input mode to Linux
-void eeconfig_init_user(void) {
-  set_unicode_input_mode(UC_LNX);
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case ESC_ALL:
-      if (record->event.pressed) {
-        clear_keyboard();
-      } else {
-        // release
-      }
-      break;
-  }
-  return true;
-};
-
-LEADER_EXTERNS();
-
-void switch_to_ws(int key) {
-  SEQ_ONE_KEY(key) {
-    register_code(KC_LGUI);
-    register_code(key);
-    unregister_code(key);
-    unregister_code(KC_LGUI);
-  }
-}
-
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    leading = false;
-    leader_end();
-
-    switch_to_ws(KC_Q);
-    switch_to_ws(KC_W);
-    switch_to_ws(KC_E);
-    switch_to_ws(KC_R);
-  }
-}
-
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
@@ -128,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHIFT   ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,XXXXXXX ,XXXXXXX ,        XXXXXXX ,XXXXXXX ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,TAP_SYM ,TAP_LALT,     KC_LEAD ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     TAP_SYM ,TAP_NAV ,XXXXXXX ,XXXXXXX
+     XXXXXXX ,XXXXXXX ,TAP_SYM ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     TAP_SYM ,TAP_NAV ,XXXXXXX ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -142,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHFT_COL,KC_Z    ,KC_X    ,KC_C    ,KC_D    ,KC_V    ,XXXXXXX ,XXXXXXX ,        XXXXXXX ,XXXXXXX ,KC_M    ,KC_H    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHFT_COL,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,TAP_SYM ,TAP_LALT,     KC_LEAD ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     TAP_SYM ,TAP_NAV ,XXXXXXX ,XXXXXXX
+     XXXXXXX ,XXXXXXX ,TAP_SYM ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     TAP_SYM ,TAP_NAV ,XXXXXXX ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -272,4 +231,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
 //  )
 
+};
+
+// Set Unicode input mode to Linux
+void eeconfig_init_user(void) {
+  set_unicode_input_mode(UC_LNX);
+}
+
+enum custom_keycodes {
+  ESC_ALL = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case ESC_ALL:
+      if (record->event.pressed) {
+        clear_keyboard();
+      } else {
+        // release
+      }
+      break;
+  }
+  return true;
 };
