@@ -78,6 +78,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
         clear_keyboard();
         clear_oneshot_mods();
+        layer_off(_QWERTY_SHIFT);
+        layer_off(_COLEMAK_SHIFT);
+        layer_off(_SYMB);
+        layer_off(_NAV);
       } else {
         // release
       }
