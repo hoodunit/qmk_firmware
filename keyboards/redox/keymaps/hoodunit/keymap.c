@@ -35,12 +35,12 @@ enum custom_keycodes {
 #define S_TAB S(KC_TAB)
 
 // Finnish characters
-#define AE      UC(0x00e4) // ä
-#define AE_U    UC(0x00c4) // Ä
-#define OO      UC(0x00f6) // ö
-#define OO_U    UC(0x00d6) // Ö
-#define RUO_O   UC(0x00e5) // å
-#define RUO_O_U UC(0x00c5) // Å
+//#define AE      UC(0x00e4) // ä
+//#define AE_U    UC(0x00c4) // Ä
+//#define OO      UC(0x00f6) // ö
+//#define OO_U    UC(0x00d6) // Ö
+//#define RUO_O   UC(0x00e5) // å
+//#define RUO_O_U UC(0x00c5) // Å
 
 // Change default layer to Colemak
 #define TO_COLE DF(_COLEMAK)
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHIFT   ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KC_MUTE ,XXXXXXX ,        RST_HYP ,KC_MPLY ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,XXXXXXX ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,XXXXXXX ,KC_BRID ,KC_BRIU
+     XXXXXXX ,XXXXXXX ,KC_ALGR ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,KC_ALGR ,KC_BRID ,KC_BRIU
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      _______ ,S(KC_Z) ,S(KC_X) ,S(KC_C) ,S(KC_V) ,S(KC_B) ,XXXXXXX ,XXXXXXX ,        XXXXXXX ,XXXXXXX ,S(KC_N) ,S(KC_M) ,KC_LT   ,KC_GT   ,KC_QUES, _______ ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     _______ ,_______ ,_______ ,_______ ,     _______ ,    KC_DEL  ,_______ ,        S_ENT   ,S_SPC   ,    _______ ,     KC_COLN ,_______ ,_______ ,_______
+     XXXXXXX ,XXXXXXX ,XXXXXXX ,_______ ,     _______ ,    KC_DEL  ,_______ ,        S_ENT   ,S_SPC   ,    _______ ,     KC_COLN ,_______ ,_______ ,_______
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
