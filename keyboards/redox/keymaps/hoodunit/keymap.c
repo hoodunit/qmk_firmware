@@ -51,7 +51,8 @@ enum custom_keycodes {
 #define CLR_COLE TO(_COLEMAK)
 
 // One-shot layers
-#define SHIFT OSL(_QWERTY_SHIFT)
+//#define SHIFT OSL(_QWERTY_SHIFT)
+#define SHIFT OSM(MOD_LSFT)
 #define SHFT_COL OSL(_COLEMAK_SHIFT)
 #define TAP_LALT OSM(MOD_LALT)
 #define TAP_LCTL OSM(MOD_LCTL)
