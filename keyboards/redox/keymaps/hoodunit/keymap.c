@@ -60,7 +60,7 @@ enum custom_keycodes {
 #define TAP_RCTL OSM(MOD_RCTL)
 #define TAP_WIN OSM(MOD_LGUI)
 #define TAP_SYM OSL(_SYMB)
-#define TAP_NAV OSL(_NAV)
+#define TAP_NAV TT(_NAV)
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define S_SPC_NV LT(_NAV, S(KC_SPC))
 
