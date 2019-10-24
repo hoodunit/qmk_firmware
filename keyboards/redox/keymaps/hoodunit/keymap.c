@@ -20,7 +20,8 @@ enum custom_keycodes {
   COLEMAK_SHIFT,
   SYMB,
   NAV,
-  ESC_ALL
+  ESC_ALL,
+  BS_DEL
 };
 
 #define SYM_L   MO(_SYMB)
@@ -75,6 +76,8 @@ void eeconfig_init_user(void) {
   set_unicode_input_mode(UC_LNX);
 }
 
+static bool bsdel_mods = false;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ESC_ALL:
@@ -88,6 +91,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         // release
       }
+      break;
+    case BS_DEL:
+       if (record->event.pressed) {
+         uint8_t shift_is_held = (keyboard_report->mods & (MOD_BIT(KC_LSFT)) );
+         uint8_t kc = shift_is_held ? KC_DEL : KC_BSPC;
+         if (shift_is_held) {
+           unregister_code(KC_LSFT);
+         }
+         register_code(kc);
+         if (shift_is_held) {
+           register_code(KC_LSFT);
+         }
+         bsdel_mods = shift_is_held;
+       } else {
+         uint8_t kc = bsdel_mods ? KC_DEL : KC_BSPC;
+         unregister_code(kc);
+       }
       break;
   }
   return true;
@@ -105,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHIFT   ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KC_MUTE ,XXXXXXX ,        RST_HYP ,KC_MPLY ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,KC_ALGR ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,KC_ALGR ,KC_BRID ,KC_BRIU
+     XXXXXXX ,XXXXXXX ,KC_ALGR ,TAP_LALT,     TAP_WIN ,    BS_DEL  ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,KC_ALGR ,KC_BRID ,KC_BRIU
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
