@@ -12,6 +12,8 @@ extern keymap_config_t keymap_config;
 #define _COLEMAK_SHIFT 3
 #define _SYMB 4
 #define _NAV 5
+#define _GAMING_FPS 6
+#define _GAMING_SC2_CORE 7
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -47,6 +49,8 @@ enum custom_keycodes {
 #define TO_COLE DF(_COLEMAK)
 // Change default layer to QWERTY
 #define TO_QWER DF(_QWERTY)
+#define TO_GAME DF(_GAMING_FPS)
+#define TO_SC2 DF(_GAMING_SC2_CORE)
 
 #define CLR_QWER TO(_QWERTY)
 #define CLR_COLE TO(_COLEMAK)
@@ -117,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_QWERTY] = LAYOUT(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     ESC_ALL ,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            XXXXXXX ,XXXXXXX ,XXXXXXX ,KC_PSCR ,KC_INS  ,KC_DEL  ,
+     ESC_ALL ,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            XXXXXXX ,TO_SC2  ,TO_GAME ,KC_PSCR ,KC_INS  ,KC_DEL  ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,KC_VOLU ,                          KC_MNXT ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_BSLS ,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -125,8 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHIFT   ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,KC_MUTE ,XXXXXXX ,        RST_HYP ,KC_MPLY ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     XXXXXXX ,XXXXXXX ,KC_ALGR ,TAP_LALT,     TAP_WIN ,    BS_DEL  ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,KC_ALGR ,KC_BRID ,KC_BRIU
-  //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
+     XXXXXXX ,TO_SC2  ,KC_ALGR ,TAP_LALT,     TAP_WIN ,    BS_DEL  ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     KC_SCLN ,KC_ALGR ,KC_BRID ,KC_BRIU //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
   [_SYMB] = LAYOUT(
@@ -168,8 +171,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      SHIFT   ,KC_Z    ,KC_X    ,KC_C    ,KC_D    ,KC_V    ,KC_MUTE ,XXXXXXX ,        XXXXXXX ,KC_MPLY ,KC_M    ,KC_H    ,KC_COMM ,KC_DOT  ,KC_SLSH ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
      XXXXXXX ,XXXXXXX ,XXXXXXX ,TAP_LALT,     TAP_WIN ,    KC_BSPC ,TAP_NAV ,        KC_ENT  ,KC_SPC  ,    TAP_RCTL,     TAP_SYM ,XXXXXXX ,KC_BRID ,KC_BRIU
+  //────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
+  ),
+
+  [_GAMING_FPS] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     KC_NAGR ,KC_1    ,KC_2    ,KC_3    ,KC_4    ,KC_5    ,                                            TO_QWER ,XXXXXXX ,XXXXXXX ,KC_9    ,KC_0    ,KC_NAMI ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_TAB  ,KC_Q    ,KC_W    ,KC_E    ,KC_R    ,KC_T    ,SYM_L   ,                          SYM_L   ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_EQL  ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_ESC  ,KC_A    ,KC_S    ,KC_D    ,KC_F    ,KC_G    ,KC_LBRC ,                          KC_RBRC ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_QUOT ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_LSFT ,KC_Z    ,KC_X    ,KC_C    ,KC_V    ,KC_B    ,XXXXXXX ,KC_PGDN ,        RST_HYP ,XXXXXXX ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
+  //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
+     KC_LGUI ,KC_PPLS ,KC_PMNS ,KC_ALAS ,     KC_CTPL ,    KC_SPC  ,KC_DEL  ,        KC_ENT  ,KC_SPC  ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
-  )
+  ),
+
+  [_GAMING_SC2_CORE] = LAYOUT(
+  //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
+     ESC_ALL ,KC_7    ,KC_8    ,KC_9    ,KC_0    ,XXXXXXX ,                                            TO_QWER ,XXXXXXX ,XXXXXXX ,KC_9    ,KC_0    ,KC_NAMI ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┐                         ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_MINS ,KC_EQUAL,XXXXXXX ,                          SYM_L   ,KC_Y    ,KC_U    ,KC_I    ,KC_O    ,KC_P    ,KC_EQL  ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_G    ,KC_H    ,KC_J    ,KC_L    ,KC_P    ,KC_LBRC ,KC_RBRC ,                          KC_RBRC ,KC_H    ,KC_J    ,KC_K    ,KC_L    ,KC_SCLN ,KC_QUOT ,
+  //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
+     KC_B    ,KC_N    ,KC_M    ,KC_DOT  ,KC_SCLN ,KC_QUOTE,XXXXXXX , XXXXXXX ,        RST_HYP ,XXXXXXX ,KC_N    ,KC_M    ,KC_COMM ,KC_DOT  ,KC_SLSH ,KC_RSFT ,
+  //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
+     TO_QWER ,XXXXXXX ,XXXXXXX ,KC_SLSH ,     KC_RALT ,    KC_LSFT  ,KC_RCTL  ,        KC_ENT  ,KC_SPC  ,    KC_RALT ,     KC_LEFT ,KC_DOWN ,KC_UP   ,KC_RGHT
+  //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
+  ),
 
 //  [_QWERTY_SHIFT] = LAYOUT(
 //  //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
