@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      SHIFT   ,KC_SLSH ,KC_DOT  ,KC_COMM ,KC_M    ,KC_N    ,KC_MPLY ,RST_HYP ,        XXXXXXX ,KC_MUTE ,KC_B    ,KC_V    ,KC_C    ,KC_X    ,KC_Z    ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     KC_BRIU ,KC_BRID ,KC_ALGR ,KC_SCLN ,     TAP_RCTL,    KC_SPC  ,KC_ENT  ,        TAP_NAV ,BS_DEL  ,    TAP_WIN ,     TAP_LALT,KC_ALGR ,XXXXXXX ,XXXXXXX
+     KC_BRIU ,KC_BRID ,KC_ALGR ,KC_SCLN ,     TAP_RCTL,    KC_SPC  ,KC_ENT  ,        TAP_NAV ,BS_DEL  ,    TAP_WIN ,     TAP_WIN ,TAP_LALT ,XXXXXXX ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
