@@ -123,9 +123,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┤                         ├────────┼────────┼────────┼────────┼────────┼────────┼────────┤
      KC_QUOT ,TAP_SYM ,KC_L    ,KC_K    ,KC_J    ,KC_H    ,KC_MPRV ,                          KC_VOLD ,KC_G    ,KC_F    ,KC_D    ,KC_S    ,KC_A    ,CTRL_ESC,
   //├────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┐       ┌────────┼────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-     SHIFT   ,KC_SLSH ,KC_DOT  ,KC_COMM ,KC_M    ,KC_N    ,KC_MPLY ,RST_HYP ,        XXXXXXX ,KC_MUTE ,KC_B    ,KC_V    ,KC_C    ,KC_X    ,KC_Z    ,SHIFT   ,
+     SHIFT   ,KC_SLSH ,KC_DOT  ,KC_COMM ,KC_M    ,KC_N    ,KC_MPLY ,RST_HYP ,        TAP_NAV ,KC_MUTE ,KC_B    ,KC_V    ,KC_C    ,KC_X    ,KC_Z    ,SHIFT   ,
   //├────────┼────────┼────────┼────────┼────┬───┴────┬───┼────────┼────────┤       ├────────┼────────┼───┬────┴───┬────┼────────┼────────┼────────┼────────┤
-     KC_BRIU ,KC_BRID ,KC_ALGR ,KC_SCLN ,     TAP_RCTL,    KC_SPC  ,KC_ENT  ,        TAP_NAV ,BS_DEL  ,    TAP_WIN ,     TAP_WIN ,TAP_LALT ,XXXXXXX ,XXXXXXX
+     KC_BRIU ,KC_BRID ,KC_ALGR ,KC_SCLN ,     TAP_RCTL,    KC_SPC  ,KC_ENT  ,        TAP_WIN ,BS_DEL  ,    TAP_WIN ,     TAP_LALT,TAP_LALT ,XXXXXXX ,XXXXXXX
   //└────────┴────────┴────────┴────────┘    └────────┘   └────────┴────────┘       └────────┴────────┘   └────────┘    └────────┴────────┴────────┴────────┘
   ),
 
